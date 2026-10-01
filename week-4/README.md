@@ -4,19 +4,22 @@
 Runs the incident tracker and a PostgreSQL database as a two-service Compose stack, with data persisted in a named volume.
 
 ## Requirements
-- Docker Compose
+- Docker Compose (original stack) and k3s with kubectl
 - A `.env` file in `week-4/` (copy `.env.example` and fill in real values)
 
 ## Run it
+Compose is stopped now. Kubernetes (k3s) is how this app actually runs, from the manifests in this folder.
 ```
-docker compose up -d --build
+kubectl create secret generic db-credentials --from-env-file=.env
+kubectl apply -f .
 ```
 
 ## Verify
 ```
-docker compose ps
+kubectl get pods
+kubectl port-forward --address 0.0.0.0 service/web 8080:8080
 ```
-Or visit http://localhost:8080 in a browser.
+Then visit http://localhost:8080 in a browser.
 
 ## Stop it
 ```
