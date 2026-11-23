@@ -1,0 +1,7 @@
+# Criterion 1: same seed, same file (2026-11-23 03:48 UTC)
+$ python generate_data.py --seed 4031 --out /tmp/incidents-run1.csv   (and again to run2)
+$ sha256sum /tmp/incidents-run1.csv /tmp/incidents-run2.csv capstone/ml-ai/data/incidents.csv
+22613f90a7f773f83cc60daaeb485101b0f6bdd56f57e48c8a6708d462a52965  /tmp/incidents-run1.csv
+22613f90a7f773f83cc60daaeb485101b0f6bdd56f57e48c8a6708d462a52965  /tmp/incidents-run2.csv
+22613f90a7f773f83cc60daaeb485101b0f6bdd56f57e48c8a6708d462a52965  capstone/ml-ai/data/incidents.csv
+MATCH: both runs and the committed file have the same hash

@@ -1,0 +1,11 @@
+# Dataset summary: capstone/ml-ai/data/incidents.csv
+rows: 6000   columns: id, title, category, severity, created_at
+category (5): Access 1227, Devices 1175, Network 1248, Shipments 1182, Vehicles 1168
+severity (4): Critical 678, High 1520, Low 1799, Medium 2003
+dates: 2026-08-01 00:38 to 2026-10-29 23:57
+first 5 rows:
+  1, Night shift: reefer unit failing for several drivers -> Vehicles / High
+  2, Pallet count drops sometimes -> Shipments / Medium
+  3, Network switch: small display glitch -> Network / Low
+  4, Driver reports order stopped working site wide -> Shipments / High
+  5, Small display glitch about the dock terminal -> Devices / Low

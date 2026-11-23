@@ -1,0 +1,37 @@
+{
+  "dataset": {
+    "file": "data/incidents.csv",
+    "rows": 6000,
+    "sha256": "22613f90a7f773f83cc60daaeb485101b0f6bdd56f57e48c8a6708d462a52965"
+  },
+  "split": {
+    "train": 4800,
+    "test": 1200,
+    "test_size": 0.2,
+    "random_state": 4031
+  },
+  "baseline": {
+    "category": {
+      "accuracy": 0.2075,
+      "macro_f1": 0.0687,
+      "always_predicts": "Network"
+    },
+    "severity": {
+      "accuracy": 0.3342,
+      "macro_f1": 0.1252,
+      "always_predicts": "Medium"
+    }
+  },
+  "model": {
+    "category": {
+      "accuracy": 0.905,
+      "macro_f1": 0.9049
+    },
+    "severity": {
+      "accuracy": 0.9558,
+      "macro_f1": 0.9575
+    }
+  },
+  "severity_accuracy_target": 0.8,
+  "meets_severity_target": true
+}

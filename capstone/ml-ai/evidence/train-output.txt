@@ -1,0 +1,32 @@
+
+== category: baseline vs model (held-out test set, 1200 rows) ==
+baseline accuracy 0.207  macro F1 0.069  (always says Network)
+model    accuracy 0.905  macro F1 0.905
+              precision    recall  f1-score   support
+
+      Access      0.901     0.876     0.888       250
+     Devices      0.887     0.925     0.906       228
+     Network      0.909     0.920     0.914       249
+   Shipments      0.929     0.910     0.920       245
+    Vehicles      0.899     0.895     0.897       228
+
+    accuracy                          0.905      1200
+   macro avg      0.905     0.905     0.905      1200
+weighted avg      0.905     0.905     0.905      1200
+
+
+== severity: baseline vs model (held-out test set, 1200 rows) ==
+baseline accuracy 0.334  macro F1 0.125  (always says Medium)
+model    accuracy 0.956  macro F1 0.958
+              precision    recall  f1-score   support
+
+    Critical      0.970     0.963     0.967       135
+        High      0.953     0.941     0.947       304
+         Low      0.980     0.961     0.971       360
+      Medium      0.932     0.960     0.946       401
+
+    accuracy                          0.956      1200
+   macro avg      0.959     0.956     0.958      1200
+weighted avg      0.956     0.956     0.956      1200
+
+severity accuracy 0.956 (target 0.8) -> MEETS target; wrote metrics.json
