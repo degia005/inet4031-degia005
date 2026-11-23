@@ -1,0 +1,44 @@
+# Environment Checkpoint, Local VM, 2026-11-23 03:43 UTC
+
+$ kubectl get nodes
+NAME                      STATUS   ROLES           AGE   VERSION
+inet4031-dane-degiacomo   Ready    control-plane   53d   v1.36.4+k3s1
+
+$ kubectl get pods -A
+NAMESPACE     NAME                                             READY   STATUS             RESTARTS       AGE
+default       db-68dc786d-kx827                                0/1     Running            1 (13m ago)    18m
+default       db-exporter-5bd684db7b-qrn6h                     1/1     Running            2 (26m ago)    18d
+default       web-7b876d4578-5bg7s                             0/1     CrashLoopBackOff   9 (48s ago)    11d
+kube-system   coredns-54996dc9b4-scttk                         1/1     Running            8 (13m ago)    53d
+kube-system   helm-install-traefik-9lkh8                       0/1     Completed          1 (53d ago)    53d
+kube-system   helm-install-traefik-crd-6vc5f                   0/1     Completed          0              53d
+kube-system   local-path-provisioner-77b9867795-bsvpl          1/1     Running            8 (13m ago)    53d
+kube-system   metrics-server-6dc596dfb8-4wjrg                  0/1     Running            13 (6s ago)    53d
+kube-system   svclb-traefik-8eb20f95-9jjpn                     2/2     Running            16 (13m ago)   53d
+kube-system   traefik-59b7647586-ndpcd                         1/1     Running            8 (13m ago)    53d
+monitoring    prometheus-kube-state-metrics-86f6b846bf-5bm6f   1/1     Running            3 (26m ago)    39d
+monitoring    prometheus-prometheus-node-exporter-j4twb        1/1     Running            3 (26m ago)    39d
+monitoring    prometheus-server-6944b769c9-th7zv               2/2     Running            6 (13m ago)    32d
+
+$ kubectl get networkpolicy
+NAME         POD-SELECTOR   AGE
+db-clients   app=db         18d
+
+$ curl -s http://$(kubectl get service web -o jsonpath='{.spec.clusterIP}'):8080/health
+
+$ ./week-10/sql.sh
+psql: error: connection to server on socket "/var/run/postgresql/.s.PGSQL.5432" failed: No such file or directory
+	Is the server running locally and accepting connections on that socket?
+command terminated with exit code 2
+
+$ tail -5 ~/deploy.log
+2026-11-23 03:24:01 up to date at 8706f3d
+2026-11-23 03:26:52 up to date at 8706f3d
+2026-11-23 03:28:18 up to date at 8706f3d
+2026-11-23 03:30:10 up to date at 8706f3d
+2026-11-23 03:42:50 up to date at 8706f3d
+
+$ free -h
+               total        used        free      shared  buff/cache   available
+Mem:           5.3Gi       1.4Gi       2.2Gi       3.1Mi       1.9Gi       3.9Gi
+Swap:          4.0Gi          0B       4.0Gi

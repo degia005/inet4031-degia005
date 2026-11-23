@@ -1,0 +1,25 @@
+# Tool versions actually used, ML & AI track, Local VM, 2026-11-23 03:45 UTC
+$ . /etc/os-release && echo $PRETTY_NAME
+Ubuntu 26.04.1 LTS
+$ python3 --version
+Python 3.14.4
+$ ~/ml-ai-venv/bin/python -c "import sklearn; print(sklearn.__version__)"
+1.9.1
+$ ~/ml-ai-venv/bin/python -c "import numpy, scipy; print(numpy.__version__, scipy.__version__)"
+2.5.5 1.18.1
+$ ~/ml-ai-venv/bin/python -c "import joblib; print(joblib.__version__)"
+1.6.0
+$ ~/ml-ai-venv/bin/python -c "from importlib.metadata import version; print(version('flask'))"
+3.1.3
+$ docker --version
+Docker version 29.8.1, build 4a63305
+$ kubectl version --client
+Client Version: v1.36.4+k3s1
+Kustomize Version: v5.8.1
+$ kubectl get nodes   (k3d isn't part of the Local VM)
+NAME                      STATUS     ROLES           AGE   VERSION
+inet4031-dane-degiacomo   NotReady   control-plane   53d   v1.36.4+k3s1
+$ curl --version | head -1
+curl 8.18.0 (x86_64-pc-linux-gnu) libcurl/8.18.0 OpenSSL/3.5.5 zlib/1.3.1 brotli/1.2.0 zstd/1.5.7 libidn2/2.3.8 libpsl/0.21.2 libssh2/1.11.1 nghttp2/1.68.0 librtmp/2.3 mit-krb5/1.22.1 OpenLDAP/2.6.10
+$ jq --version
+jq-1.8.1
